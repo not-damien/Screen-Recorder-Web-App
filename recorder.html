@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="pause">Pause</button>
+
     
 </body>
 <script>
@@ -14,9 +19,8 @@
     //asks user to share their screen
     async function getPerm(){
         const stream = await navigator.mediaDevices.getDisplayMedia({video: true, audio: true});
-        
-        const recorder = new MediaRecorder(stream, {
-        mimeType: "video/webm; codecs=vp8"});
+        var options = {mimeType: 'video/webm; codecs=vp9'};
+        const recorder = new MediaRecorder(stream, options);
 
 
         const chunks = [];
@@ -33,17 +37,32 @@
             window.document.createElement("a");
 
             a.href = URL.createObjectURL(blob);
-            a.download = "recording.webm";
+            a.download = "recording.mp4";
 
             document.body.appendChild(a);
             a.click();
         }
-        recorder.start();
-        recorder.stop();
-
-    
+    $("#start").click(function() {
+        recorder.start()
+        //todo make pause active when you start recording
+        //activate stop
+        //todo deactivate start 
+    })
+    $("#stop").click(function(){
+        recorder.stop()
+        //todo activate start button 
+        //todo deactivate stop button 
+    })
+    $("#pause").click(function(){
+        recorder.pause()
+        //activate resume
+        //deactivate stop
+    }
+    )
     }
     getPerm()
+    
+
 
 </script>
 </html>
