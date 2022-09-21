@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //asks user to share their screen
+    async function getPerm(){
+        const stream = await navigator.mediaDevices.getDisplayMedia({video: true, audio: true});
+        
+        const recorder = new MediaRecorder(stream, {
+        mimeType: "video/webm; codecs=vp8"});
+
+
+        const chunks = [];
+        recorder.ondataavailable = (e) =>
+        chunks.push(e.data);
+
+        recorder.onstop = () => {
+            const track = stream.getVideoTracks()[0];
+            track.stop();
+
+            const blob = new Blob(chunks, {type: chunks[0].type})
+
+            const a = 
+            window.document.createElement("a");
+
+            a.href = URL.createObjectURL(blob);
+            a.download = "recording.webm";
+
+            document.body.appendChild(a);
+            a.click();
+        }
+        recorder.start();
+        recorder.stop();
+
+    
+    }
+    getPerm()
+
+</script>
+</html>
