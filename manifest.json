@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+
+    "name": "InBrowse- Screen Recorder",
+    "description": "A simple Screen Recorder ",
+    "version": "0.1",
+
+
+
+    "browser_action": {
+        "default_icon": "Images/Chrome Icon.png",
+        "default_popup": "/popup1.html"
+    },
+
+
+
+    "icons": {
+        
+    }
+}

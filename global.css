@@ -1,0 +1,12 @@
+body{
+    width: 357px;
+    height: 326px;
+    background-color: FFFFFF;
+}
+#optinons{
+    display: inline-block;
+}
+.center{
+  display: grid;
+  place-items: center;
+}
