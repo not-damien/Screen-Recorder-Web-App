@@ -3,8 +3,8 @@ body{
     height: 326px;
     background-color: FFFFFF;
 }
-#optinons{
-    
+img:hover{
+  filter: invert(1);
 }
 .center{
   display: grid;
