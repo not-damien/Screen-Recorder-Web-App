@@ -4,9 +4,21 @@ body{
     background-color: FFFFFF;
 }
 #optinons{
-    display: inline-block;
+    
 }
 .center{
   display: grid;
   place-items: center;
+}
+label{
+  font-family: "Mochiy Pop One";
+  font-size: 15px;
+}
+#logo{
+  margin-bottom: 25px;
+}
+#checks{
+  display: grid;
+  place-items: center;
+  align-items:left ;
 }
