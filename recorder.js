@@ -1,22 +1,44 @@
 let screenStr = "Images/ScreenOr.svg"
-$("#screen").click(function(){
+let tabsStr = "Images/TabsOr.svg"
+let desktopStr = "Images/Desktop.svg"
+let screenSelect = false;
+let tabSelect = false;
+let desktopSelect = false;
+
+
+$("#desktop").click(swapDesktopIcon)
+$("#screen").click(swapScreenIcon)
+$("#tabs").click(swapTabIcon)
+
+function swapTabIcon(){
+    temp = $("#tabs").attr("src");
+    $("#tabs").attr("src", tabsStr)
+    tabsStr = temp;
+    tabSelect = !tabSelect;
+    console.log(tabSelect ? "Tab Selected":"Tab Unselected");
+}
+function swapDesktopIcon(){
+    console.log('hi');
+    temp = $("#desktop").attr("src");
+    $("#desktop").attr("src", desktopStr)
+    desktopStr = temp;
+    desktopSelect = !desktopSelect;
+}
+function swapScreenIcon(){
     console.log('hi');
     temp = $("#screen").attr("src");
     $("#screen").attr("src",screenStr)
     screenStr = temp;
-})
+    screenSelect = !screenSelect;
+}
 
-$("#start").mouseenter(function(){
-    console.log('hi');
-    $(this).attr("src","Images/Start Recording_or.svg")
-})
-$("#start").mouseleave(function(){
-    console.log('bye');
-    $(this).attr("src","Images/Start Recording_.svg")
-})
+
+
+
+
 
  async function getPerm(){
-        const stream = await navigator.mediaDevices.getDisplayMedia({video: true, audio: true});
+        const stream = await navigator.mediaDevices.getDisplayMedia({video: true, audio: true});//update here with check mark values
         var options = {mimeType: 'video/webm; codecs=vp9'};
         const recorder = new MediaRecorder(stream, options);
 
@@ -48,3 +70,4 @@ $("#start").mouseleave(function(){
             document.body.appendChild(a);
             $('a').html("download here")
         }
+    }

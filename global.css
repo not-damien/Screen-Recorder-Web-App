@@ -3,7 +3,7 @@ body{
     height: 326px;
     background-color: FFFFFF;
 }
-img:hover{
+#start:hover{
   filter: invert(1);
 }
 .center{
